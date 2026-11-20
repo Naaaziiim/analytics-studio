@@ -20,43 +20,87 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+/* Main page */
 .stApp {
     background-color: #F4F9F5;
+    color: #1F2937;
 }
 
+/* Make regular text readable throughout the main page */
+.stApp, .stApp p, .stApp label, .stApp li,
+.stApp [data-testid="stMarkdownContainer"] p,
+.stApp [data-testid="stCaptionContainer"] {
+    color: #374151;
+}
+
+.stApp [data-testid="stCaptionContainer"] {
+    color: #596579 !important;
+    opacity: 1 !important;
+}
+
+.stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+    color: #14532D;
+}
+
+/* Sidebar */
 [data-testid="stSidebar"] {
     background-color: #14532D;
 }
 
 [data-testid="stSidebar"] * {
-    color: white !important;
+    color: #FFFFFF !important;
 }
 
+/* Titles */
 .main-title {
     color: #14532D;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .section-title {
-    color: #166534;
+    color: #14532D;
     font-size: 23px;
-    font-weight: bold;
+    font-weight: 750;
     padding: 10px 0;
     border-bottom: 2px solid #BBF7D0;
 }
 
+/* Metric cards */
 div[data-testid="stMetric"] {
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid #BBF7D0;
     padding: 15px;
     border-radius: 12px;
 }
 
-.stButton button {
+div[data-testid="stMetric"] label,
+div[data-testid="stMetric"] [data-testid="stMetricLabel"] {
+    color: #4B5563 !important;
+    opacity: 1 !important;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+    color: #14532D !important;
+}
+
+/* Buttons */
+.stButton button, .stDownloadButton button {
     background-color: #15803D;
-    color: white;
+    color: #FFFFFF;
     border-radius: 8px;
+    border: 1px solid #15803D;
+}
+
+.stButton button:hover, .stDownloadButton button:hover {
+    background-color: #166534;
+    color: #FFFFFF;
+    border-color: #166534;
+}
+
+/* Alerts and info panels */
+[data-testid="stAlert"] p {
+    color: #1F2937 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -123,9 +167,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.write(
-    "Upload your dataset and discover patterns, trends, "
-    "performance metrics and business insights."
+st.markdown(
+    '<p class="main-subtitle">Upload your dataset and discover patterns, trends, '
+    'performance metrics and business insights.</p>',
+    unsafe_allow_html=True
 )
 
 st.divider()
